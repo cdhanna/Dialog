@@ -1,0 +1,32 @@
+{
+"Prove of Concept"
+	"Setting" : "Gates of Oreskos"
+	NPC = guard a
+	If time value = 1.0 : Guard dialong = "Afternoon traveler, what brings you to Oreskos?"
+    If time value = >1.0 : Guard dialong = "Hold stranger, what brings you to the city at such an hour?"
+        {Player options}
+            "Intimidate"
+                failure risk 95%
+                    {guard} {success} : "Okay okay! I'll open the gate!"
+                    {guard} {failure} : "We'll see how tough you really are!"
+            "Bribe"
+                failure risk 50% (+/- size of bribe)
+                    {Guard} {success} : "Welcome to Oreskos my lord"
+                    {Guard} {failure} : "you can keep your coin it'll be your only company in the dungeon"
+            "Tell the truth"
+                failure risk 0%
+                    {guard} {success} : "you'll find what you need inside, God's speed"
+            "Lie"
+                "small lie"
+                    failure risk 15%
+                        {Guard} {success} : "quite the tale, I hope you find what you need inside"
+                        {Guard} {failure} : "I should kill you where you stand for that, leave before I lose my patience!"
+                "medium lie"
+                    failure risk 25%
+                        {Guard} {success} : "By the Gods! A thousand praise upon you my lord!"
+                        {Guard} {failure} : "If you're the prophet then I'm the pharoh. Get lost before I throw you in the dungeon"
+                "huge lie"
+                    failure risk 30%
+                        {Guard} {success} {time = 1.0} : "my appoligies my lord I didn't know you would be arriving today"
+                        {Guard} {success} {time = <1.0} : "my appoligies my lord I didn't know you would be arriving tonight"
+                        {Guard} {failure} : "No one disrespects the lord and lives!"
