@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Criterion.cs" />
     <Compile Include="Loader\RuleModel.cs" />
+    <Compile Include="Loader\RuleParser.cs" />
     <Compile Include="MatchSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query.cs" />

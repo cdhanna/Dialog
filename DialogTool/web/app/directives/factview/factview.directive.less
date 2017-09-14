@@ -1,0 +1,106 @@
+fact-view {
+    // color: red;
+    display: block;
+    width: 300px;
+
+    .isOther {
+        position: relative;
+        // top: 40px;
+        
+    }
+    .fact {
+        position: relative;
+    }
+    .fact.isNotPin{
+        top: 30px;
+    }
+    md-card span {
+
+        &.key, &.val {
+
+            display: inline-block;
+            width: 45%;
+        }
+        &.pin {
+            display: inline-block;
+            width: 10%;
+            md-checkbox {
+                margin-bottom: 0px;
+            }
+        }
+
+        input {
+            width: calc(100% - 14px);
+            margin: 4px 4px;
+            margin-left: 0px;
+            outline: none;
+            border: solid 1px lightgray;
+            padding: 0px 4px;
+            background-color: gray;
+            border-radius: 4px;
+            color: white;
+        } 
+        p {
+            margin: 0px;
+            margin-left: 2px;
+        }
+    }
+
+    md-input-container {
+        height: 40px;
+        margin-bottom: 0px;
+    }
+
+    .sep {
+        width: 80%;
+        margin-left: 10%;
+        text-align: center;
+        margin-bottom: 6px;
+        border-top: 2px solid lightgray;
+        padding-top: 6px;
+        color: gray;
+    }
+
+    .md-virtual-repeat-offsetter > .isOther {
+        margin-top: 30px;
+        &:before {
+            content: 'NonMatching Facts';
+            position: absolute;
+            left: 50%;
+            top: -20px;
+            transform: translate(-50%, 0);
+            color: gray;
+            display: block;
+            border-top: solid 1px gray;
+            width: 80%;
+            text-align: center;
+            padding-top: 4px;
+            font-size: 12px;
+        }
+        & ~ .isOther {
+            margin-top: 0px;
+            &:before {
+                content: '';
+                border: none;
+            }
+        }
+    }
+
+    .fact-container {
+
+       
+
+        height: 50vh;
+        .fact {
+            // transition: all .5s ease-out;
+            // height: 50px;
+            // position: relative;
+        }
+        .md-virtual-repeat-scroller {
+            transition: none;
+        }
+        .md-virtual-repeat-offsetter {
+            transition: none;
+        }
+    }
+}

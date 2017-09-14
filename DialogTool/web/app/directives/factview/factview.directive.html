@@ -1,0 +1,53 @@
+<div>
+    <h4> Facts </h4>
+
+    <div flex>
+        <md-input-container flex="70">
+            <label>Search Facts {{useRegex == true ? 'With Regex' : ''}}</label>
+            <input name="factQuery" ng-model="query" ng-change="updateQuery()">
+        </md-input-container>
+        <md-checkbox ng-model="useRegex" aria-label="regex" flex="30">
+            RegEx
+        </md-checkbox>
+    </div>
+
+    <md-virtual-repeat-container class="fact-container">
+        <!-- <div class="container"> -->
+            <md-card ng-if="otherIndex == -1"
+                md-theme="default"
+                md-theme-watch 
+                class="no-query"
+                style="padding: 4px; text-align: center;"
+                flex>
+                No Facts Match Query
+            </md-card> 
+
+            <!-- <div class="sep"
+                style="position: absolute; top: {{(otherIndex+1) * 36}}px;"
+                >
+                Other Facts...
+            </div> -->
+
+            <div
+                md-virtual-repeat="fact in getQueryFacts()"
+                ng-class="{'isOther':  $index > otherIndex, 'isNotPin': nonPinnedIndex >= 0 && $index > nonPinnedIndex}"
+                class="fact"
+            >
+                <md-card 
+                    md-theme="default" 
+                    md-theme-watch
+                    flex>
+                    <div row>
+                        <span class="key"> <p> {{fact.key}} </p> </span><span class="val"> <input ng-model="fact.value" type="text"> </span><span class="pin"><md-checkbox md-no-ink class="md-primary" ng-model="fact.pinned"> </md-checkbox> </span>
+                    </div>
+                </md-card>
+            </div>
+            
+
+    </md-virtual-repeat-container>
+
+            <!-- <div class="sep"> </div>  -->
+
+        <!-- </div> -->
+
+</div>

@@ -17,6 +17,9 @@ namespace PredicateMatcher.Loader
 
         [JsonProperty("author")]
         public string Author { get; set; }
+
+        [JsonProperty("rules")]
+        public RuleModel[] Rules { get; set; }
     }
     class RuleModel
     {
